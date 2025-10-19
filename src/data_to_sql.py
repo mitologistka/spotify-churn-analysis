@@ -9,6 +9,7 @@ df['age'] = df['age'].astype(int)
 df['gender'] = df['gender'].astype(str)
 df['is_churned'] = df['is_churned'].astype(bool)
 
+print(DB)
 
 
 url = f"postgresql://{DB['user']}:{DB['password']}@{DB['host']}:{DB['port']}/{DB['database']}"
