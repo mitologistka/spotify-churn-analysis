@@ -1,38 +1,20 @@
 CREATE OR REPLACE VIEW user_metrics AS
-WITH max_values AS (
-    SELECT 
-        MAX(ads_listened_per_week) AS max_ads,
-        MAX(listening_time) AS max_listening
-    FROM spotify_users
-)
 SELECT 
-    u.user_id,
-    u.gender,
-    u.age, 
-    u.country,
-    u.subscription_type,
-    u.listening_time,
-    u.songs_played_per_day,
-    u.skip_rate,
-    u.device_type,
-    u.ads_listened_per_week,
-    u.offline_listening,
-    u.is_churned,
-    CASE 
-        WHEN u.songs_played_per_day = 0 THEN NULL
-        ELSE u.listening_time::float / u.songs_played_per_day
-    END AS avg_time_per_song,
-    (u.ads_listened_per_week::float * 60 / NULLIF(u.listening_time * 7, 0)) AS ads_per_hour,
-    ROUND(
-        (
-            0.6 * u.skip_rate
-            + 0.3 * (u.ads_listened_per_week::float / mv.max_ads)
-            - 0.1 * (u.listening_time::float / mv.max_listening)
-        )::numeric,
-        3
-    ) AS churn_score
-FROM spotify_users u
-CROSS JOIN max_values mv;
+    user_id,
+    gender,
+    age, 
+    country,
+    subscription_type,
+    listening_time,
+    songs_played_per_day,
+    skip_rate,
+    device_type,
+    ads_listened_per_week,
+    offline_listening,
+    is_churned
+FROM spotify_users;
+
+SELECT * FROM spotify_users;
 
 CREATE OR REPLACE VIEW country_churn_stats AS
 SELECT 
@@ -70,3 +52,9 @@ SELECT
 FROM spotify_users
 GROUP BY device_type
 ORDER BY churn_rate DESC;
+
+SELECT 
+    device_type,
+    COUNT(*) as total_users
+FROM spotify_users
+GROUP BY device_type;   
