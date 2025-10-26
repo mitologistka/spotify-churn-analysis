@@ -14,7 +14,7 @@ SELECT
     is_churned
 FROM spotify_users;
 
-SELECT * FROM spotify_users;
+SELECT * FROM user_metrics LIMIT 10;
 
 CREATE OR REPLACE VIEW country_churn_stats AS
 SELECT 
