@@ -79,11 +79,21 @@ The dataset I use is [Spotify Analysis Dataset 2025](https://www.kaggle.com/data
 </table>
 </div>
 
-The analysis is based on data from 8,000 individuals aged 16–59, with an average daily listening time of 2.5 hours, assuming at least one song played per day.
+The analysis is based on data from **8 000** individuals aged 16–59, with an average daily listening time of 2.5 hours, assuming at least one song played per day.
 
-The dashboard indicates a churn rate of 26%, which is significantly higher than typical levels in this segment (below 7%).
+The dashboard indicates a churn rate of approximately **26%**, which is significantly higher than typical benchmarks for subscription-based businesses (annual churn rates usually range around 5–7%).
 
-Churn does not appear to vary substantially by gender, as the segments in the donut chart are roughly equal. Similarly, differences across device types are minimal, with variations of only 1–2%. 
+Segment analysis reveals that gender has negligible impact on churn; the donut chart segments are nearly equal. Similarly, device type differences are minimal (1–2%), suggesting that neither demographic characteristics nor access method are major churn drivers in this dataset.
+
+Geographic analysis shows that **Pakistan** (PK) exhibits the highest churn rate.
+
+When analyzing subscription types, the **Family plan** stands out with the highest churn. Within this plan, two distinct age clusters—around 18 years old and 50+ years old—show the greatest churn risk. These users also have the lowest listening times, indicating limited app engagement. This pattern suggests that some users may have subscribed due to promotions rather than long-term interest. In multi-member Family plans (up to six users), low engagement is likely diluted across members, contributing further to elevated churn.
+
+Key insight:
+- Primary churn driver is low engagement (listening time), not gender, device type, or geography
+- Most vulnerable segment: secondary users on Family plans, especially in very young or older age ranges, who demonstrate minimal usage.
+
+
 
 ---
 ## Step 1: Configuration and Environment
@@ -129,8 +139,6 @@ with engine.begin() as conn:
 - Connect to the database using Supabase.
 - Create measures (miary) using DAX for aggregations.
 - Add filters and interactive elements to enhance data exploration and presentation.
-  <img width="1971" height="1125" alt="image" src="https://github.com/user-attachments/assets/41839fb0-0129-461e-8e40-63e46b18c81e" />
-
  
 ## Step 7 Analysis Summary
   
