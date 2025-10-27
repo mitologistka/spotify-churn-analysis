@@ -78,9 +78,12 @@ The dataset I use is [Spotify Analysis Dataset 2025](https://www.kaggle.com/data
   </tbody>
 </table>
 </div>
-We based on informations about 8000 people in 16-59 age with avg listening time at 2,5h per day whose listen minumum 1 song per day.
-if we will look at the dashborad we can se 26% on churn rate 26% what is really high churn usually is below 7%. Churn rate isn't really debends of gender because parts of the donut chart are quite eqqual similar situations in device churn rate because it's only 1-2% differences.
 
+The analysis is based on data from 8,000 individuals aged 16–59, with an average daily listening time of 2.5 hours, assuming at least one song played per day.
+
+The dashboard indicates a churn rate of 26%, which is significantly higher than typical levels in this segment (below 7%).
+
+Churn does not appear to vary substantially by gender, as the segments in the donut chart are roughly equal. Similarly, differences across device types are minimal, with variations of only 1–2%. 
 
 ---
 ## Step 1: Configuration and Environment
