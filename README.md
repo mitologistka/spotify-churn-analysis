@@ -3,7 +3,8 @@
 ## Introduction 
 The dataset I use is [Spotify Analysis Dataset 2025](https://www.kaggle.com/datasets/nabihazahid/spotify-dataset-for-churn-analysis/data) from Kaggle. This dataset is **synthetically generated**. **Spotify** is a streaming platform where users can listen to music with limitations or get a premium subscription for unlimited access.
 
-##  Who usually churn? Analisys
+
+##  Who usually churn? Analysis
 
 <table border="1" class="dataframe">
   <thead>
@@ -79,9 +80,11 @@ The dataset I use is [Spotify Analysis Dataset 2025](https://www.kaggle.com/data
 </table>
 </div>
 
-The analysis is based on data from **8 000** individuals aged 16–59, with an average daily listening time of 2.5 hours, assuming at least one song played per day.
+The analysis is based on data from **8 000** individuals aged 16–59, with an average daily listening time of 2,5 hours (154 min), assuming at least one song played per day.
 
 The dashboard indicates a churn rate of approximately **26%**, which is significantly higher than typical benchmarks for subscription-based businesses (annual churn rates usually range around 5–7%).
+
+![alt text](https://github.com/mitologistka/spotify-churn-analysis/blob/main/img/dashboard.png)
 
 Segment analysis reveals that gender has negligible impact on churn; the donut chart segments are nearly equal. Similarly, device type differences are minimal (1–2%), suggesting that neither demographic characteristics nor access method are major churn drivers in this dataset.
 
@@ -91,8 +94,7 @@ When analyzing subscription types, the **Family plan** stands out with the highe
 
 Key insight:
 - Primary churn driver is low engagement (listening time), not gender, device type, or geography
-- Most vulnerable segment: secondary users on Family plans, especially in very young or older age ranges, who demonstrate minimal usage.
-
+- The most vulnerable segment consists of secondary users on Family plans, particularly those aged around 18 and 50+, who exhibit minimal app usage.
 
 
 ---
@@ -115,7 +117,7 @@ with engine.begin() as conn:
 ## Step 3 Feature Engineering in SQL
 - Create views to simplify queries and analyses.
 - Add calculated columns for derived metrics:
-`ads_per_hour = (ads_listened_per_week * 60) / (7 * listening_time)`
+`ads per listening hour = (ads listened per week * 60) / (7 * listening time)`
 
 
 
@@ -140,7 +142,12 @@ with engine.begin() as conn:
 - Create measures (miary) using DAX for aggregations.
 - Add filters and interactive elements to enhance data exploration and presentation.
  
-## Step 7 Analysis Summary
+## Step 7: Analysis Summary
+The analysis reveals that Spotify’s churn is primarily driven by **low engagement** rather than demographic factors or device type. 
+Secondary users on multi-member (Family) plans, particularly users around 18 and 50+ years old, are the most vulnerable segment. 
+Business recommendations include targeting these users with **personalized engagement strategies**, such as tailored playlists, notifications, or incentives to increase app usage and reduce churn.
+This summary demonstrates the full analytics workflow from data import, cleaning, EDA, feature engineering, modeling, to actionable business insights, highlighting skills relevant for a Data Analyst role.
+
   
   
 
