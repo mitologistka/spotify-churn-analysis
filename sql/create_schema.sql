@@ -12,3 +12,4 @@ CREATE TABLE IF NOT EXISTS spotify_users (
     offline_listening BOOLEAN,
     is_churned BOOLEAN
 );
+
